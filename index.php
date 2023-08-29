@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inicio de Sesión</title>
+    <link rel="shortcut icon" href="img/logo2.jfif">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -24,7 +25,7 @@
                 </h4>
             </div>
             <div class="card-body">
-                <form action="home.php" method="POST">
+                <form action="panels/administrador/home.php" method="POST">
                     <br>
                 <div class="input-group flex-nowrap">
                     <span class="input-group-text" id="addon-wrapping">
