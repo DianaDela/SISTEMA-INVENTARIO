@@ -67,6 +67,15 @@
         </ul>
       </li>
       <li>
+        <a href="">
+        <i class='bx bx-bell'></i>
+          <span class="link_name">Notificaciones</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="">Notificaciones</a></li>
+        </ul>
+      </li>
+      <li>
         <a href="../../index.php">
         <i class='bx bx-log-out' ></i>
           <span class="link_name">Cerrar Sesión</span>
