@@ -1,75 +1,34 @@
 <?php
-    include_once 'bd/conexion.php';
+$username=$_POST['username'];
+$password=$_POST['password'];
+session_start();
+$_SESSION['username']=$username;
 
-    session_start();
+include ('bd/conexion.php');
 
-    if(isset($_GET['cerrar_sesion'])){
-        session_unset();
+$consulta="SELECT*FROM usuarios where username='$username' and password='$password'";
+$resultado=mysqli_query($conexion,$consulta);
 
-        session_destroy();
-    }
+$filas=mysqli_fetch_array($resultado);
 
-    if(isset($_SESSION['rol'])){
-        switch($_SESSION['rol']){
-            case 1:
-                header('location: panels/administrador/home.php');
-            break;
+if($filas['rol_id']==1){ 
+    header("location: panels/administrador/home.php");
 
-            case 2:
-            header('location: panels/gerente/home.php');
-            break;
+}else
+if($filas['rol_id']==2){ 
+header("location: panels/gerente/home.php");
+}else
+if($filas['rol_id']==3){ 
+header("location: panels/cliente1/home.php");
+}else
+if($filas['rol_id']==4){ 
+header("location: panels/cliente2/home.php");
+}
+else{
+    header('location: errors/index_error.php');
+}
 
-            case 3:
-                header('location: panels/cliente1/home.php');
-            break;
-
-            case 4:
-                header('location: panels/cliente2/home.php');
-            break;
-
-            default:
-        }
-    }
-
-    if(isset($_POST['username']) && isset($_POST['password'])){
-        $username = $_POST['username'];
-        $password = $_POST['password'];
-
-        $db = new Database();
-        $query = $db->connect()->prepare('SELECT*FROM usuarios WHERE username = :username AND password = :password');
-        $query->execute(['username' => $username, 'password' => $password]);
-
-        $row = $query->fetch(PDO::FETCH_NUM);
-        if($row == true){
-            // validar rol
-            $rol = $row[3];
-            $_SESSION['rol'] = $rol;
-
-            switch($_SESSION['rol']){
-                case 1:
-                    header('location: panels/administrador/home.php');
-                break;
-    
-                case 2:
-                header('location: panels/gerente/home.php');
-                break;
-    
-                case 3:
-                    header('location: panels/cliente1/home.php');
-                break;
-    
-                case 4:
-                    header('location: panels/cliente2/home.php');
-                break;
-    
-                default:
-            }
-        }else{
-            // no existe el usuario
-            header('Location: errors/index_error.php');
-        }
-
-    }
-    
+mysqli_free_result($resultado);
+mysqli_close($conexion);
 
 ?>

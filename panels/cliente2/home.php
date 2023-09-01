@@ -1,3 +1,17 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("location: ../../errors/error404.php");
+    die();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,12 +58,12 @@
         </ul>
       </li>
       <li>
-        <a href="../../index.php">
+        <a href="../../destroy_session.php">
         <i class='bx bx-log-out' ></i>
           <span class="link_name">Cerrar Sesión</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="../../index.php">Cerrar Sesión</a></li>
+          <li><a class="link_name" href="../../destroy_session.php">Cerrar Sesión</a></li>
         </ul>
       </li>
       <li>

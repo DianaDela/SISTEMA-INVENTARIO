@@ -1,3 +1,16 @@
+<?php 
+//seguridad de sessiones paginacion
+session_start();
+error_reporting(0);
+$varsesion= $_SESSION['username'];
+if($varsesion== null || $varsesion=''){
+    header("Location: ../../errors/error404.php");
+    die();
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
