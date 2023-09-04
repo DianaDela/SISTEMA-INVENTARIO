@@ -31,7 +31,7 @@
                     <span class="input-group-text" id="addon-wrapping">
                         <i class='bx bxs-user'></i>
                     </span>
-                    <input type="email" name="username" id="password" class="form-control" placeholder="Email">
+                    <input type="email" name="username" id="password" class="form-control" placeholder="Correo electronico">
                 </div>
                 <br>
                 <div class="d-grid gap-2">
