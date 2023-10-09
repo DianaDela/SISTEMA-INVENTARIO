@@ -1,5 +1,14 @@
 <?php
 
-$conexion=mysqli_connect("localhost","root","","sistema-inventario");
+    $host  = "localhost";
+    $user = "root";
+    $pass = "";
+    $db = "cmdb";
+
+    $conexion =new mysqli($host,$user,$pass,$db);
+
+    if (!$conexion) {
+        echo 'Conexion fallida';    
+    }
 
 ?>
