@@ -1,63 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de Sesión</title>
-    <link rel="shortcut icon" href="../img/logo2.jfif">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-</head>
-<body>
-<!-- Navbar -->    
-<nav class="navbar" style="background: gray;">
-  <div class="container-fluid" style="margin-left: 32%;">
-    <img src="../img/logo.png" alt="" srcset="">
-  </div>
-</nav>
+  <head>
+  	<title>Grupo Piasa | IALMSA</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Card -->
-    <div class="container" style="width: 500px;">
-    <br><br>
-    <div class="alert alert-danger d-flex align-items-center" role="alert">
-        <i class='bx bxs-error flex-shrink-0 me-2' width="24" height="24" role="img" aria-label="Danger:" style="margin-left: 89px;"></i>
-        <div>
-            Usuario y/o contraseña incorrecto
-        </div>
-    </div>
-        <div class="card text-center" style="margin: 50px;">
-            <div class="card-header">
-                <h4>
-                    Login
-                </h4>
-            </div>
-            <div class="card-body">
-                <form action="../validar.php" method="POST">
-                    <br>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">
-                        <i class='bx bxs-user'></i>
-                    </span>
-                    <input type="text" name="username" id="password" class="form-control" placeholder="Username" >
-                </div><br>
-                <br>
-                <div class="input-group flex-nowrap">
-                    <span class="input-group-text" id="addon-wrapping">
-                        <i class='bx bxs-lock-alt'></i>
-                    </span>
-                    <input type="password" name="password" id="password" class="form-control" placeholder="Password" >
-                </div>
-                <br>
-                <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="submit" style="margin: 12px;">Ingresar</button>
-                </div>                
-                </form>
-                <a href="../recuperacionPass/page.php">¿Haz olvidado tu contraseña?</a>
-            </div>
-        </div>
-    </div>
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" ></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" ></script>
-</body>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="../assent/index.css">
+
+	</head>
+	<body>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-5">
+                <div class="login-wrap p-4 p-md-5">
+                    <div class="icon d-flex align-items-center justify-content-center">
+                        <span class="fa fa-user-o"></span>
+                    </div>
+                    <div class="alert alert-danger text-center" role="alert">
+                        <div>
+                            Credenciales incorrectas
+                        </div>
+                    </div>
+						<form action="../validar.php" class="login-form">
+		      		<div class="form-group">
+		      			<input type="text" name="username" class="form-control rounded-left" placeholder="Username" required>
+		      		</div>
+	            <div class="form-group d-flex">
+	              <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
+	            </div>
+	            <div class="form-group d-md-flex">
+	            	<div class="w-50">
+	            		<label class="checkbox-wrap checkbox-primary">Remember Me
+									  <input type="checkbox" checked>
+									  <span class="checkmark"></span>
+									</label>
+								</div>
+								<div class="w-50 text-md-right">
+									<a href="#">Forgot Password</a>
+								</div>
+	            </div>
+	            <div class="form-group">
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
+	            </div>
+	          </form>
+	        </div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="../js/jquery.min.js"></script>
+  <script src="../js/popper.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  <script src="../js/main.js"></script>
+
+	</body>
 </html>

@@ -6,7 +6,7 @@ $_SESSION['username']=$username;
 
 include ('bd/conexion.php');
 
-$consulta="SELECT*FROM username where username='$username' and password='$password'";
+$consulta="SELECT*FROM usuarios where username='$username' and password='$password'";
 $resultado=mysqli_query($conexion,$consulta);
 
 $filas=mysqli_fetch_array($resultado);
