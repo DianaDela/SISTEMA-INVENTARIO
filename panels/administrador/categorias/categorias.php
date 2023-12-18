@@ -1,3 +1,7 @@
+<?php
+  include '../../../bd/conexion.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -6,14 +10,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <title>Grupo piasa | IALMSA</title>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="../../assent/admin.css" rel="stylesheet" />
+        <link href="../../../assent/admin.css" rel="stylesheet" />
         <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="home.php">
-                <img src="../../img/logo_3.png" alt="" srcset="" style="width: 20%;">
+            <a class="navbar-brand ps-3" href="../home.php">
+                <img src="../../../img/logo_3.png" alt="" srcset="" style="width: 20%;">
                 Grupo Piasa
             </a>
             <!-- Sidebar Toggle-->
@@ -32,7 +36,7 @@
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="#!">Settings</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" href="../../destroy_session.php">Logout</a></li>
+                        <li><a class="dropdown-item" href="../../../destroy_session.php">Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -43,7 +47,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">Core</div>
-                            <a class="nav-link" href="home.php">
+                            <a class="nav-link" href="../home.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
@@ -67,22 +71,22 @@
                             </a>
                             <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="general/general.php">
+                                    <a class="nav-link" href="../general/general.php">
                                         General
                                     </a>
-                                    <a class="nav-link" href="categorias/categorias.php">
+                                    <a class="nav-link" href="categorias.php">
                                         Categorias
                                     </a>
-                                    <a class="nav-link" href="unidad/unidad.php">
+                                    <a class="nav-link" href="../unidad/unidad.php">
                                         Unidad Organizativa
                                     </a>
-                                    <a class="nav-link" href="status/status.php">
+                                    <a class="nav-link" href="../status/status.php">
                                         Status
                                     </a>
-                                    <a class="nav-link" href="empleados/empleados.php">
+                                    <a class="nav-link" href="../empleados/empleados.php">
                                         Empleados
                                     </a>
-                                    <a class="nav-link" href="departamentos/departamentos.php">
+                                    <a class="nav-link" href="../departamentos/departamentos.php">
                                         Departamentos
                                     </a>
                                 </nav>
@@ -103,83 +107,81 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
+                        <h1 class="mt-4">Categorias</h1>
                         <br>
                         <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Equipos en produccion</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
+                          <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 12%;">
+                          <img src="../../../img/plus-regular-36 (1).png">Add categoria
+                        </button>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">New categoria</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                              <form action="valCategoria.php" method="POST">
+                              <div class="mb-3">
+                                <label for="categoria" class="form-label">Categoria</label>
+                                <input type="text" class="form-control" name="categoria" id="categoria" placeholder="Nombre de la categoria">
+                              </div>
+                                <div class="row justify-content-end">
+                                    <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
                                 </div>
+                            </form>
+                              </div>
                             </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Equipos en baja</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Equipos con garantia</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-info text-white mb-4">
-                                    <div class="card-body">Equipos en stock</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-dark text-white mb-4">
-                                    <div class="card-body">Equipos Temporales</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Equipos dañados</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
+                          </div>
+                        </div>
                         </div>
                         <br>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table me-1"></i>
+                                DataTable categorias
                             </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
+                            <div class="card-body">
+                                <table id="datatablesSimple">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Categorias</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Categorias</th>
+                                            <th>Acciones</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                      <?php
+                                        $query = "SELECT * FROM categorias";
+                                        $result_task = mysqli_query($conexion, $query);
+
+                                        while($row = mysqli_fetch_assoc($result_task)) { ?>
+                                        <tr>
+                                          <td><?php echo $row['id']; ?></td>
+                                          <td><?php echo $row['categorias']; ?></td>
+                                          <td>
+                                            <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
+                                              Edit
+                                            </a>
+                                            <a href="delete.php?ID=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
+                                              Delete
+                                            </a>
+                                          </td>
+                                        </tr>
+                                      <?php } ?>
+                                    </tbody>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
@@ -199,11 +201,9 @@
             </div>
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="../../js/scripts.js"></script>
+        <script src="../../../js/scripts.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="../../js/demo/chart-area-demo.js"></script>
-        <script src="../../js/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="../../js/datatables-simple-demo.js"></script>
+        <script src="../../../js/datatables-simple-demo.js"></script>
     </body>
 </html>

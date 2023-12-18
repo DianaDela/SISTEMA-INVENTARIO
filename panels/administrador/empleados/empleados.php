@@ -59,7 +59,7 @@
                             </a>
                             <div class="collapse" id="collapsePages1" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="users.php">
+                                    <a class="nav-link" href="../users/users.php">
                                         Users
                                     </a>
                                 </nav>
@@ -83,7 +83,7 @@
                                     <a class="nav-link" href="../status/status.php">
                                         Status
                                     </a>
-                                    <a class="nav-link" href="../empleados/empleados.php">
+                                    <a class="nav-link" href="empleados.php">
                                         Empleados
                                     </a>
                                     <a class="nav-link" href="../departamentos/departamentos.php">
@@ -107,12 +107,12 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Users</h1>
+                        <h1 class="mt-4">Empleados</h1>
                         <br>
                         <div class="row">
                           <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 12%;">
-                          <img src="../../../img/user-plus-solid-36 (1).png">Nuevo usuario
+                            <img src="../../../img/plus-regular-36 (1).png">Add Empleado
                         </button>
 
                         <!-- Modal -->
@@ -120,27 +120,31 @@
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">New Empleado</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
-                              <form action="valUser.php" method="POST">
+                              <form action="valempleado.php" method="POST">
                               <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario">
+                                <label for="colaborador" class="form-label">Nombre del empleado</label>
+                                <input type="text" class="form-control" name="colaborador" id="colaborador" placeholder="Nombre del colaborador">
                               </div>
                               <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña">
+                                <label for="iniciales" class="form-label">Iniciales</label>
+                                <input type="text" class="form-control" name="iniciales" id="iniciales" placeholder="En mayusculas">
                               </div>
                               <div class="mb-3">
-                                <label for="rol_id" class="form-label">Rol</label>
-                                <select class="form-select mb-3" name="rol_id" id="rol_id">
-                                  <option selected disabled>Selecciona una opción</option>
+                                <label for="puesto" class="form-label">Puesto</label>
+                                <input type="text" class="form-control" name="puesto" id="puesto" placeholder="En mayusculas">
+                              </div>
+                              <div class="mb-3">
+                                <label for="departamento" class="form-label">Departamento</label>
+                                <select class="form-select mb-3" name="departamento" id="departamento">
+                                  <option selected disabled>Selecciona un departamento</option>
                                   <?php
-                                      $sql = $conexion->query("SELECT * FROM roles");
+                                      $sql = $conexion->query("SELECT * FROM depto");
                                       while ($resultado = $sql->fetch_assoc()) {
-                                      echo "<option value='".$resultado['id']."'>".$resultado['rol']."</option>";
+                                      echo "<option value='".$resultado['depto']."'>".$resultado['depto']."</option>";
                                     }
                                   ?>
                                 </select>
@@ -158,39 +162,43 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable users
+                                DataTable Status
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Rol_ID</th>
+                                            <th>Colaborador</th>
+                                            <th>Iniciales</th>
+                                            <th>Puesto</th>
+                                            <th>Departamento</th>
                                             <th>Acciones</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Rol_ID</th>
+                                            <th>Colaborador</th>
+                                            <th>Iniciales</th>
+                                            <th>Puesto</th>
+                                            <th>Departamento</th>
                                             <th>Acciones</th>
+                                        </tr>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                       <?php
-                                        $query = "SELECT * FROM usuarios";
+                                        $query = "SELECT * FROM empleados";
                                         $result_task = mysqli_query($conexion, $query);
 
                                         while($row = mysqli_fetch_assoc($result_task)) { ?>
                                         <tr>
                                           <td><?php echo $row['id']; ?></td>
-                                          <td><?php echo $row['username']; ?></td>
-                                          <td><?php echo $row['password']; ?></td>
-                                          <td><?php echo $row['rol_id']; ?></td>
+                                          <td><?php echo $row['colaborador']; ?></td>
+                                          <td><?php echo $row['iniciales']; ?></td>
+                                          <td><?php echo $row['puesto']; ?></td>
+                                          <td><?php echo $row['departamento']; ?></td>
                                           <td>
                                             <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
                                               Edit

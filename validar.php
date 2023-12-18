@@ -16,7 +16,7 @@ if($filas['rol_id']==1){
     
 }else
 if($filas['rol_id']==2){ 
-    header("location: ");
+    header("location: panels/cliente/home.php");
 
 }else{
     header('location: errors/index_error.php');

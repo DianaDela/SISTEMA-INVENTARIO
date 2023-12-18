@@ -52,18 +52,6 @@
                                 Dashboard
                             </a>
                             <div class="sb-sidenav-menu-heading">Interface</div>
-                            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages1" aria-expanded="false" aria-controls="collapsePages">
-                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
-                                    Authentication
-                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-                            </a>
-                            <div class="collapse" id="collapsePages1" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
-                                <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                    <a class="nav-link" href="users.php">
-                                        Users
-                                    </a>
-                                </nav>
-                            </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages2" aria-expanded="false" aria-controls="collapsePages">
                                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                                     Tables
@@ -86,7 +74,7 @@
                                     <a class="nav-link" href="../empleados/empleados.php">
                                         Empleados
                                     </a>
-                                    <a class="nav-link" href="../departamentos/departamentos.php">
+                                    <a class="nav-link" href="departamentos.php">
                                         Departamentos
                                     </a>
                                 </nav>
@@ -100,105 +88,43 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Administrador
+                        Cliente
                     </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Users</h1>
-                        <br>
-                        <div class="row">
-                          <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 12%;">
-                          <img src="../../../img/user-plus-solid-36 (1).png">Nuevo usuario
-                        </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                          <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">Register</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                              <form action="valUser.php" method="POST">
-                              <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" name="username" id="username" placeholder="Nombre de usuario">
-                              </div>
-                              <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
-                                <input type="text" class="form-control" name="password" id="password" placeholder="Contraseña">
-                              </div>
-                              <div class="mb-3">
-                                <label for="rol_id" class="form-label">Rol</label>
-                                <select class="form-select mb-3" name="rol_id" id="rol_id">
-                                  <option selected disabled>Selecciona una opción</option>
-                                  <?php
-                                      $sql = $conexion->query("SELECT * FROM roles");
-                                      while ($resultado = $sql->fetch_assoc()) {
-                                      echo "<option value='".$resultado['id']."'>".$resultado['rol']."</option>";
-                                    }
-                                  ?>
-                                </select>
-                              </div>
-                                <div class="row justify-content-end">
-                                    <button type="submit" name="guardar" class="btn btn-success btn-block" style="width: 120px; margin-right: 12px;">Guardar</button>
-                                </div>
-                            </form>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </div>
+                        <h1 class="mt-4">Departamentos</h1>
                         <br>
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable users
+                                DataTable Status
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Rol_ID</th>
-                                            <th>Acciones</th>
+                                            <th>Departamentos</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>ID</th>
-                                            <th>Username</th>
-                                            <th>Password</th>
-                                            <th>Rol_ID</th>
-                                            <th>Acciones</th>
+                                            <th>Departamentos</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                       <?php
-                                        $query = "SELECT * FROM usuarios";
+                                        $query = "SELECT * FROM depto";
                                         $result_task = mysqli_query($conexion, $query);
 
                                         while($row = mysqli_fetch_assoc($result_task)) { ?>
                                         <tr>
                                           <td><?php echo $row['id']; ?></td>
-                                          <td><?php echo $row['username']; ?></td>
-                                          <td><?php echo $row['password']; ?></td>
-                                          <td><?php echo $row['rol_id']; ?></td>
-                                          <td>
-                                            <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
-                                              Edit
-                                            </a>
-                                            <a href="delete.php?ID=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
-                                              Delete
-                                            </a>
-                                          </td>
+                                          <td><?php echo $row['depto']; ?></td>
                                         </tr>
                                       <?php } ?>
                                     </tbody>

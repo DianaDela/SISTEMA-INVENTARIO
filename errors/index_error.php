@@ -27,7 +27,7 @@
                             Credenciales incorrectas
                         </div>
                     </div>
-						<form action="../validar.php" class="login-form">
+						<form action="../validar.php" class="login-form" method="POST">
 		      		<div class="form-group">
 		      			<input type="text" name="username" class="form-control rounded-left" placeholder="Username" required>
 		      		</div>
