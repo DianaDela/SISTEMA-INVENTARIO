@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 08-12-2023 a las 00:09:24
+-- Tiempo de generación: 02-01-2024 a las 15:44:34
 -- Versión del servidor: 10.4.28-MariaDB
 -- Versión de PHP: 8.2.4
 
@@ -24,6 +24,120 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `categorias`
+--
+
+CREATE TABLE `categorias` (
+  `id` int(11) NOT NULL,
+  `categorias` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `categorias`
+--
+
+INSERT INTO `categorias` (`id`, `categorias`) VALUES
+(1, 'Software'),
+(2, 'Hardware'),
+(3, 'Licencias'),
+(4, 'Computo'),
+(5, 'Servidores'),
+(6, 'Storage'),
+(7, 'Telecomunicaciones'),
+(8, 'Telefonia'),
+(9, 'Equipo Complementario');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `depto`
+--
+
+CREATE TABLE `depto` (
+  `id` int(11) NOT NULL,
+  `depto` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `depto`
+--
+
+INSERT INTO `depto` (`id`, `depto`) VALUES
+(1, 'Abastecimientos'),
+(2, 'Campo'),
+(3, 'Capital Humano'),
+(4, 'Comercialización'),
+(5, 'Contabilidad'),
+(6, 'Contraloria'),
+(7, 'Dirección General'),
+(8, 'Fábrica'),
+(9, 'Finanzas'),
+(10, 'Logística'),
+(11, 'Oficina México'),
+(12, 'Tecnologías de la Información'),
+(13, 'Servicios'),
+(14, 'Site'),
+(15, 'TI(externo)');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `empleados`
+--
+
+CREATE TABLE `empleados` (
+  `id` int(11) NOT NULL,
+  `colaborador` varchar(100) NOT NULL,
+  `iniciales` varchar(100) NOT NULL,
+  `puesto` varchar(100) NOT NULL,
+  `departamento` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `empleados`
+--
+
+INSERT INTO `empleados` (`id`, `colaborador`, `iniciales`, `puesto`, `departamento`) VALUES
+(1, 'Gustavo Ariel Mercado Barrera', 'GAMB', 'Jefe de Abastecimientos', 'Abastecimientos');
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `general`
+--
+
+CREATE TABLE `general` (
+  `id` int(11) NOT NULL,
+  `id_activo` varchar(100) NOT NULL,
+  `id_categoria` int(10) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `serie` varchar(100) NOT NULL,
+  `id_unidad` int(10) NOT NULL,
+  `unidad` varchar(100) NOT NULL,
+  `descripcion` varchar(100) NOT NULL,
+  `marca` varchar(50) NOT NULL,
+  `modelo` varchar(50) NOT NULL,
+  `adquisicion` varchar(50) NOT NULL,
+  `estatus` varchar(100) NOT NULL,
+  `id_departamento` int(11) NOT NULL,
+  `departamento` varchar(100) NOT NULL,
+  `colaborador` varchar(100) NOT NULL,
+  `resguardo` varchar(10) NOT NULL,
+  `iniciales` varchar(10) NOT NULL,
+  `puesto` varchar(100) NOT NULL,
+  `fecha` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `general`
+--
+
+INSERT INTO `general` (`id`, `id_activo`, `id_categoria`, `categoria`, `serie`, `id_unidad`, `unidad`, `descripcion`, `marca`, `modelo`, `adquisicion`, `estatus`, `id_departamento`, `departamento`, `colaborador`, `resguardo`, `iniciales`, `puesto`, `fecha`) VALUES
+(1, 'aaaa', 1, 'Software', 'aaaaaa', 1, 'Saisa', 'aaaaaa', 'aaaaa', 'aaaaa', 'aaaaa', '1', 1, 'Abastecimientos', 'Gustavo Ariel Mercado Barrera', 'R', '', 'Jefe de Abastecimientos', '2023-12-18');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `roles`
 --
 
@@ -38,7 +152,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `rol`) VALUES
 (1, 'admin'),
-(2, 'cliente1');
+(2, 'cliente');
 
 -- --------------------------------------------------------
 
@@ -51,6 +165,18 @@ CREATE TABLE `status` (
   `status` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `status`
+--
+
+INSERT INTO `status` (`id`, `status`) VALUES
+(1, 'Producción'),
+(2, 'Baja'),
+(3, 'Garantía'),
+(4, 'Stock'),
+(5, 'Temporal'),
+(6, 'Dañado');
+
 -- --------------------------------------------------------
 
 --
@@ -61,6 +187,18 @@ CREATE TABLE `unidad` (
   `id` int(11) NOT NULL,
   `unidad` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `unidad`
+--
+
+INSERT INTO `unidad` (`id`, `unidad`) VALUES
+(1, 'SAISA'),
+(2, 'ITVSA'),
+(3, 'IALMSA'),
+(4, 'IPSLSA'),
+(5, 'PIASA'),
+(6, 'CIS');
 
 -- --------------------------------------------------------
 
@@ -80,11 +218,36 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `rol_id`) VALUES
-(1, 'administrador', 'adminpass', 1);
+(1, 'administrador', 'adminpass', 1),
+(2, 'cliente', 'clientepass', 2);
 
 --
 -- Índices para tablas volcadas
 --
+
+--
+-- Indices de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `depto`
+--
+ALTER TABLE `depto`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indices de la tabla `general`
+--
+ALTER TABLE `general`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `roles`
@@ -116,6 +279,30 @@ ALTER TABLE `usuarios`
 --
 
 --
+-- AUTO_INCREMENT de la tabla `categorias`
+--
+ALTER TABLE `categorias`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT de la tabla `depto`
+--
+ALTER TABLE `depto`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT de la tabla `empleados`
+--
+ALTER TABLE `empleados`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de la tabla `general`
+--
+ALTER TABLE `general`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
@@ -125,19 +312,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT de la tabla `status`
 --
 ALTER TABLE `status`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `unidad`
 --
 ALTER TABLE `unidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Restricciones para tablas volcadas
