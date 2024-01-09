@@ -82,7 +82,8 @@ if (isset($_POST['update'])) {
     $new_fecha = $_POST['new_fecha'];
 
     $query = "UPDATE categorias SET id_activo = '$new_id_activo', id_categoria = '$new_id_categoria', serie = '$new_serie', id_unidad = '$new_id_unidad', unidad = '$new_unidad',
-    descripcion = '$new_descripcion', marca = '$new_marca', modelo = '$new_modelo', adquisicion = '$new_adquisicion', estatus = '$new_estatus', unidad = '$new_unidad', unidad = '$new_unidad', WHERE id = $id";
+    descripcion = '$new_descripcion', marca = '$new_marca', modelo = '$new_modelo', adquisicion = '$new_adquisicion', estatus = '$new_estatus', id_departamento = '$new_id_departamento', 
+    departamento = '$new_departamento', colaborador = '$new_colaborador', resguardo = '$new_resguardo', iniciales = '$new_iniciales', puesto = '$new_puesto', fecha = '$new_fecha' WHERE id = $id";
     $result_update = mysqli_query($conexion, $query);
     
     if ($conexion->query($query) === TRUE) {
