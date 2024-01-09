@@ -81,7 +81,7 @@ if (isset($_POST['update'])) {
     $new_puesto = $_POST['new_puesto'];
     $new_fecha = $_POST['new_fecha'];
 
-    $query = "UPDATE categorias SET id_activo = '$new_id_activo', id_categoria = '$new_id_categoria', serie = '$new_serie', id_unidad = '$new_id_unidad', unidad = '$new_unidad',
+    $query = "UPDATE general SET id_activo = '$new_id_activo', id_categoria = '$new_id_categoria', serie = '$new_serie', id_unidad = '$new_id_unidad', unidad = '$new_unidad',
     descripcion = '$new_descripcion', marca = '$new_marca', modelo = '$new_modelo', adquisicion = '$new_adquisicion', estatus = '$new_estatus', id_departamento = '$new_id_departamento', 
     departamento = '$new_departamento', colaborador = '$new_colaborador', resguardo = '$new_resguardo', iniciales = '$new_iniciales', puesto = '$new_puesto', fecha = '$new_fecha' WHERE id = $id";
     $result_update = mysqli_query($conexion, $query);
@@ -131,6 +131,130 @@ if (isset($_POST['update'])) {
                                     }
                                   ?>
                                 </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="categoria" class="form-label">Categoria</label>
+                                <select class="form-select mb-3" name="new_categoria" id="categoria">
+                                  <option selected><?php echo $categoria; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM categorias");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['categorias']."'>".$resultado['categorias']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="serie" class="form-label">Serie</label>
+                                <input type="text" class="form-control" name="new_serie" id="serie" value="<?php echo $serie; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="id_unidad" class="form-label">ID_Unidad</label>
+                                <select class="form-select mb-3" name="new_id_unidad" id="id_unidad">
+                                  <option selected><?php echo $id_unidad; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM unidad");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['id']."'>".$resultado['unidad']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="unidad" class="form-label">Unidad</label>
+                                <select class="form-select mb-3" name="new_unidad" id="unidad">
+                                  <option selected><?php echo $unidad; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM unidad");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['unidad']."'>".$resultado['unidad']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="descripcion" class="form-label">Descripcion</label>
+                                <input type="text" class="form-control" name="new_descripcion" id="descripcion" value="<?php echo $descripcion; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="marca" class="form-label">Marca</label>
+                                <input type="text" class="form-control" name="new_marca" id="marca" value="<?php echo $marca; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="modelo" class="form-label">Modelo</label>
+                                <input type="text" class="form-control" name="new_modelo" id="modelo" value="<?php echo $modelo; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="adquisicion" class="form-label">adquisición</label>
+                                <input type="text" class="form-control" name="new_adquisicion" id="adquisicion" value="<?php echo $adquisicion; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="estatus" class="form-label">Estatus</label>
+                                <select class="form-select mb-3" name="new_estatus" id="estatus">
+                                  <option selected><?php echo $estatus; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM status");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['id']."'>".$resultado['status']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="id_departamento" class="form-label">ID_Departamento</label>
+                                <select class="form-select mb-3" name="new_id_departamento" id="id_departamento">
+                                  <option selected><?php echo $estatus; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM depto");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['id']."'>".$resultado['depto']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="departamento" class="form-label">Departamento</label>
+                                <select class="form-select mb-3" name="new_departamento" id="departamento">
+                                  <option selected><?php echo $departamento; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM depto");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['depto']."'>".$resultado['depto']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="colaborador" class="form-label">Colaborador</label>
+                                <select class="form-select mb-3" name="new_colaborador" id="colaborador">
+                                <option selected><?php echo $colaborador; ?></option>
+                                  <?php
+                                      $sql = $conexion->query("SELECT * FROM empleados");
+                                      while ($resultado = $sql->fetch_assoc()) {
+                                      echo "<option value='".$resultado['colaborador']."'>".$resultado['colaborador']."</option>";
+                                    }
+                                  ?>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="resguardo" class="form-label">Resguardo</label>
+                                <select class="form-select mb-3" name="new_resguardo" id="resguardo">
+                                <option selected><?php echo $resguardo; ?></option>
+                                  <option value="R">Responsable</option>
+                                  <option value="T">Titular</option>
+                                </select>
+                              </div>
+                              <div class="mb-3">
+                                <label for="iniciales" class="form-label">Iniciales</label>
+                                <input type="text" class="form-control" name="new_iniciales" id="iniciales" value="<?php echo $iniciales; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="puesto" class="form-label">Puesto</label>
+                                <input type="text" class="form-control" name="new_puesto" id="puesto" value="<?php echo $puesto; ?>">
+                              </div>
+                              <div class="mb-3">
+                                <label for="fecha" class="form-label">Fecha</label>
+                                <input type="date" class="form-control" name="new_fecha" id="fecha" value="<?php echo $fecha; ?>">
                               </div>
             <a type="submite" class="btn btn-danger" href="general.php">Back</a>
             <button class="btn btn-success" name="update">

@@ -91,11 +91,6 @@
                                     </a>
                                 </nav>
                             </div>
-                            <div class="sb-sidenav-menu-heading">Addons</div>
-                            <a class="nav-link" href="charts.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Charts
-                            </a>
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
@@ -358,10 +353,10 @@
                                           <td><?php echo $row['puesto']; ?></td>
                                           <td><?php echo $row['fecha']; ?></td>
                                           <td>
-                                            <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
+                                            <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-warning">
                                               Edit
                                             </a>
-                                            <a href="delete.php?ID=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
+                                            <a href="delete.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
                                               Delete
                                             </a>
                                           </td>

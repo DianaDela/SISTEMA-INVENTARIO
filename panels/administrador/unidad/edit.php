@@ -13,27 +13,27 @@ if($varsesion== null || $varsesion=''){
 <?php
 include("../../../bd/conexion.php");
 
-$categorias = '';
+$unidad = '';
 
 
 if  (isset($_GET['id'])) {
   $id = $_GET['id'];
-  $query = "SELECT * FROM depto WHERE id = $id";
+  $query = "SELECT * FROM unidad WHERE id = $id";
   $result = mysqli_query($conexion, $query);
   if (mysqli_num_rows($result) == 1) {
     $row = mysqli_fetch_array($result);
-    $depto = $row['depto'];
+    $unidad = $row['unidad'];
   }
 }
 
 if (isset($_POST['update'])) {
     $id = $_GET['id'];
-    $new_depto = $_POST['new_depto'];
-    $query = "UPDATE depto SET depto = '$new_depto' WHERE id = $id";
+    $new_unidad = $_POST['new_unidad'];
+    $query = "UPDATE unidad SET unidad = '$new_unidad' WHERE id = $id";
     $result_update = mysqli_query($conexion, $query);
     
     if ($conexion->query($query) === TRUE) {
-        header('location: departamentos.php');
+        header('location: unidad.php');
     } else {
         echo "Error al cambiar el dato.";
     }
@@ -62,11 +62,11 @@ if (isset($_POST['update'])) {
     <div class="col-md-4 mx-auto">
       <div class="card card-body">
         <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
-        <div class="mb-3">
-            <label>Categoria</label>
-                <input type="text" class="form-control" name="new_depto" value="<?php echo $depto; ?>" placeholder="Actualizar Nombre">
-            </div>
-            <a type="submite" class="btn btn-danger" href="departamentos.php">Back</a>
+            <div class="mb-3">
+                <label for="unidad" class="form-label">Unidad</label>
+                <input type="text" class="form-control" name="new_unidad" id="unidad" value="<?php echo $unidad; ?>">
+             </div>
+            <a type="submite" class="btn btn-danger" href="unidad.php">Back</a>
             <button class="btn btn-success" name="update">
                 Update
             </button>
