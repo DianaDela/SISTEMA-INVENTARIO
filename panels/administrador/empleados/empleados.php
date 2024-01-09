@@ -135,7 +135,7 @@
                               </div>
                               <div class="mb-3">
                                 <label for="puesto" class="form-label">Puesto</label>
-                                <input type="text" class="form-control" name="puesto" id="puesto" placeholder="En mayusculas">
+                                <input type="text" class="form-control" name="puesto" id="puesto" placeholder="Nombre del puesto">
                               </div>
                               <div class="mb-3">
                                 <label for="departamento" class="form-label">Departamento</label>

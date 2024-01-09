@@ -112,7 +112,7 @@
                         <div class="row">
                           <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 12%;">
-                            <img src="../../../img/plus-regular-36 (1).png">Add movimiento
+                            <img src="../../../img/plus-regular-36 (1).png">Añadir
                         </button>
 
                         <!-- Modal -->

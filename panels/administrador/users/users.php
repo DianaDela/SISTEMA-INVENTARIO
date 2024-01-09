@@ -192,16 +192,15 @@
                                           <td><?php echo $row['password']; ?></td>
                                           <td><?php echo $row['rol_id']; ?></td>
                                           <td>
-                                            <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
+                                            <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-warning">
                                               Edit
                                             </a>
-                                            <a href="delete.php?ID=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
+                                            <a href="delete.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
                                               Delete
                                             </a>
                                           </td>
                                         </tr>
                                       <?php } ?>
-                                    </tbody>
                                     </tbody>
                                 </table>
                             </div>

@@ -112,7 +112,7 @@
                         <div class="row">
                           <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="width: 12%;">
-                          <img src="../../../img/plus-regular-36 (1).png">Add categoria
+                          <img src="../../../img/plus-regular-36 (1).png">Añadir
                         </button>
 
                         <!-- Modal -->
@@ -120,7 +120,7 @@
                           <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                               <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="exampleModalLabel">New categoria</h1>
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Nueva categoria</h1>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                               </div>
                               <div class="modal-body">
@@ -142,7 +142,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable categorias
+                                Tabla de categorias
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -170,10 +170,10 @@
                                           <td><?php echo $row['id']; ?></td>
                                           <td><?php echo $row['categorias']; ?></td>
                                           <td>
-                                            <a href="edit.php?ID=<?php echo $row['id']?>" class="btn btn-warning">
+                                            <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-warning">
                                               Edit
                                             </a>
-                                            <a href="delete.php?ID=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
+                                            <a href="delete.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
                                               Delete
                                             </a>
                                           </td>
