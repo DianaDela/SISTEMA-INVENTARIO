@@ -46,7 +46,7 @@
                 <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">Core</div>
+                            <div class="sb-sidenav-menu-heading"></div>
                             <a class="nav-link" href="../home.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
@@ -102,7 +102,7 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Users</h1>
+                        <h1 class="mt-4">Usuarios</h1>
                         <br>
                         <div class="row">
                           <!-- Button trigger modal -->
@@ -153,7 +153,7 @@
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable users
+                                Tabla usuarios
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
@@ -188,10 +188,10 @@
                                           <td><?php echo $row['rol_id']; ?></td>
                                           <td>
                                             <a href="edit.php?id=<?php echo $row['id']?>" class="btn btn-warning">
-                                              Edit
+                                              Editar
                                             </a>
-                                            <a href="delete.php?id=<?php echo $row['id']?>" onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger">
-                                              Delete
+                                            <a href="delete.php?id=<?php echo $row['id']?>" onclick="return confirm('Estas seguro que deseas eliminar este usuario?')" class="btn btn-danger">
+                                              Eliminar
                                             </a>
                                           </td>
                                         </tr>

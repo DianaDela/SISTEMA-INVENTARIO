@@ -29,19 +29,9 @@
 	            <div class="form-group d-flex">
 	              <input type="password" name="password" class="form-control rounded-left" placeholder="Password" required>
 	            </div>
-	            <div class="form-group d-md-flex">
-	            	<div class="w-50">
-	            		<label class="checkbox-wrap checkbox-primary">Remember Me
-									  <input type="checkbox" checked>
-									  <span class="checkmark"></span>
-									</label>
-								</div>
-								<div class="w-50 text-md-right">
-									<a href="#">Forgot Password</a>
-								</div>
-	            </div>
+				<br>
 	            <div class="form-group">
-	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
+	            	<button type="submit" class="btn btn-primary rounded submit p-3 px-5">Iniciar Session</button>
 	            </div>
 	          </form>
 	        </div>

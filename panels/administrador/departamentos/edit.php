@@ -63,7 +63,7 @@ if (isset($_POST['update'])) {
       <div class="card card-body">
         <form action="edit.php?id=<?php echo $_GET['id']; ?>" method="POST">
         <div class="mb-3">
-            <label>Categoria</label>
+            <label>Departamento</label>
                 <input type="text" class="form-control" name="new_depto" value="<?php echo $depto; ?>" placeholder="Actualizar Nombre">
             </div>
             <a type="submite" class="btn btn-danger" href="departamentos.php">Back</a>
