@@ -98,9 +98,9 @@ if (isset($_POST['update'])) {
                                   ?>
                                 </select>
                               </div>
-            <a type="submite" class="btn btn-danger" href="empleados.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="empleados.php">Cancelar</a>
             <button class="btn btn-success" name="update">
-                Update
+                Actualizar
             </button>
         </form>
       </div>

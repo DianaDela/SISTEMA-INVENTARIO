@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 02-01-2024 a las 15:44:34
+-- Tiempo de generación: 18-01-2024 a las 04:14:10
 -- Versión del servidor: 10.4.28-MariaDB
--- Versión de PHP: 8.2.4
+-- Versión de PHP: 8.1.17
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -98,7 +98,10 @@ CREATE TABLE `empleados` (
 --
 
 INSERT INTO `empleados` (`id`, `colaborador`, `iniciales`, `puesto`, `departamento`) VALUES
-(1, 'Gustavo Ariel Mercado Barrera', 'GAMB', 'Jefe de Abastecimientos', 'Abastecimientos');
+(1, 'Gustavo Ariel Mercado Barrera', 'GAMB', 'Jefe de Abastecimientos', 'Abastecimientos'),
+(2, 'Ismael Molina Denegri', 'IMD', 'Coordinador de Abastecimientos Ingeniería', 'Abastecimientos'),
+(3, 'Jesús Quintanilla Quintanilla', 'JQQ', 'Director de Abastecimientos', 'Abastecimientos'),
+(4, 'José Piñeyro Melo', 'JPM', 'Analista de Abastecimientos', 'Abastecimientos');
 
 -- --------------------------------------------------------
 
@@ -128,13 +131,6 @@ CREATE TABLE `general` (
   `fecha` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `general`
---
-
-INSERT INTO `general` (`id`, `id_activo`, `id_categoria`, `categoria`, `serie`, `id_unidad`, `unidad`, `descripcion`, `marca`, `modelo`, `adquisicion`, `estatus`, `id_departamento`, `departamento`, `colaborador`, `resguardo`, `iniciales`, `puesto`, `fecha`) VALUES
-(1, 'aaaa', 1, 'Software', 'aaaaaa', 1, 'Saisa', 'aaaaaa', 'aaaaa', 'aaaaa', 'aaaaa', '1', 1, 'Abastecimientos', 'Gustavo Ariel Mercado Barrera', 'R', '', 'Jefe de Abastecimientos', '2023-12-18');
-
 -- --------------------------------------------------------
 
 --
@@ -152,7 +148,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `rol`) VALUES
 (1, 'admin'),
-(2, 'cliente');
+(2, 'cliente1');
 
 -- --------------------------------------------------------
 
@@ -188,18 +184,6 @@ CREATE TABLE `unidad` (
   `unidad` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `unidad`
---
-
-INSERT INTO `unidad` (`id`, `unidad`) VALUES
-(1, 'SAISA'),
-(2, 'ITVSA'),
-(3, 'IALMSA'),
-(4, 'IPSLSA'),
-(5, 'PIASA'),
-(6, 'CIS');
-
 -- --------------------------------------------------------
 
 --
@@ -218,8 +202,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `username`, `password`, `rol_id`) VALUES
-(1, 'administrador', 'adminpass', 1),
-(2, 'cliente', 'clientepass', 2);
+(1, 'administrador', '1234', 1);
 
 --
 -- Índices para tablas volcadas
@@ -294,13 +277,13 @@ ALTER TABLE `depto`
 -- AUTO_INCREMENT de la tabla `empleados`
 --
 ALTER TABLE `empleados`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `general`
 --
 ALTER TABLE `general`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
@@ -318,7 +301,7 @@ ALTER TABLE `status`
 -- AUTO_INCREMENT de la tabla `unidad`
 --
 ALTER TABLE `unidad`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`

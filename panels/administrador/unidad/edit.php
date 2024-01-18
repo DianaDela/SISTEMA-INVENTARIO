@@ -66,9 +66,9 @@ if (isset($_POST['update'])) {
                 <label for="unidad" class="form-label">Unidad</label>
                 <input type="text" class="form-control" name="new_unidad" id="unidad" value="<?php echo $unidad; ?>">
              </div>
-            <a type="submite" class="btn btn-danger" href="unidad.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="unidad.php">Cancelar</a>
             <button class="btn btn-success" name="update">
-                Update
+                Actualizar
             </button>
         </form>
       </div>

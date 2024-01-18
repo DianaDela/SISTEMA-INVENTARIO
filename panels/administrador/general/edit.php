@@ -256,9 +256,9 @@ if (isset($_POST['update'])) {
                                 <label for="fecha" class="form-label">Fecha</label>
                                 <input type="date" class="form-control" name="new_fecha" id="fecha" value="<?php echo $fecha; ?>">
                               </div>
-            <a type="submite" class="btn btn-danger" href="general.php">Back</a>
+            <a type="submite" class="btn btn-danger" href="general.php">Cancelar</a>
             <button class="btn btn-success" name="update">
-                Update
+                Actualizar
             </button>
         </form>
       </div>
